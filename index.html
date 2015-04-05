@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<title>Lab 14 0bj2 - To-Do List</title>
+  <meta charset="utf-8">
+  <!-- google map api -->
+  <script src="todo-Lab140bj2-modernizr.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <link rel="stylesheet" href="todo-Lab140bj2.css">
+  
+  <script>
+        Modernizr.load([
+            "todo-Lab140bj2.js",
+            {
+                test: Modernizr.geolocation,
+                yep : "todo-Lab140bj2-geolocation.js",
+                nope: "todo-Lab140bj2-noGeolocation.js"
+            },
+            {
+                test: Modernizr.localstorage,
+                yep : "todo-Lab140bj2-localStorage.js",
+                nope: "todo-Lab140bj2-noLocalStorage.js",
+                complete: function() {
+                    init();
+                }
+            }
+        ]);
+  </script>
+</head>
+<body>
+<div id="topImg"></div>
+	<h1>My Grocery List</h1>
+	<div id="container">
+	<form>
+	<section id="todoForm">
+	<h3>Add a new item</h3>
+	<fieldset>
+	<div class="tableContainer">
+	  <div class="tableRow">
+		<label for="task">Task: </label>
+			<input type="text" id="task" size="35" placeholder="get milk">
+	  </div>
+	  <div class="tableRow">
+		<label for="who">Who should do it: </label>
+			<input type="text" id="who" placeholder="Scott">
+	  </div>
+	  <div class="tableRow">
+		<label for="dueDate">Due Date: </label>
+			<input type="date" id="dueDate">
+	  </div>
+	  <div class="tableRow">
+		<label for="submit"></label>
+		<input type="button" id="submit" value="submit">
+	  </div>
+	</div>
+	</fieldset>
+	</section> <!-- todoForm END -->
+	<section id="searchResults">
+	 <h3>Search the list</h3>
+	 <input type="text" id="searchTodo" size="35" 
+			placeholder="Get beer or Scott">
+	 <input type="button" id="searchButton" value="Search">
+		<h4>Results</h4>
+		<ul id="taskResults"></ul>
+	</section> <!-- searchResults END -->
+	</form>
+	<div id="saveStatus"></div>
+	<section id="todoPanel">
+		<h2>List Items</h2>
+	<section id="mapPanel">
+		
+		<div id="map"></div>
+		<h4>List Location</h4>
+	</section> <!--  mapPanel END -->
+	<ul id="todoList"></ul>
+	</section>
+	<ul id="features"></ul>
+ </div> <!-- container END -->
+</body>
+</html>

@@ -1,0 +1,1 @@
+function getTodoItems(){if(localStorage){for(var o=0;o<localStorage.length;o++){var t=localStorage.key(o);if("todo"==t.substring(0,4)){var a=localStorage.getItem(t),e=JSON.parse(a);todos.push(e)}}addTodosToPage()}}getTodoItems();
